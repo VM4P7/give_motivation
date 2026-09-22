@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>Give motivation</title>
+</head>
+<body>
+  <div class="lang-ru">
+    <h1>Добро пожаловать!</h1>
+    <p>Какое у вас сегодня настроение?</p>
+    <button id="good">Хорошее:)</button><button id="bad">Плохое:(</button>
+    <h3 id="mot"></h3>
+    <button id="again">Перезапуск↓</button>
+  </div>
+  <div class="lang-en">
+    <h1>Welcome!</h1>
+    <p>How are you feeling today?</p>
+    <button id="goodEn">Good:)</button><button id="badEn">Bad:(</button>
+    <h3 id="motEn"></h3>
+    <button id="againEn">Again↓</button>
+  </div>
+  <div class="lang-controls">
+    <button id="btn-en">English</button><button id="btn-ru">Русский</button>
+  </div>
+  <script>
+  // --- Списки мотиваций ---
+    const motivationsRu = {
+      good: [
+        'Ты крутой!',
+        'У тебя всё получится!',
+        'Сегодня отличный день для больших дел!',
+        'Ты на верном пути!',
+        'Горжусь тобой!'
+      ],
+      bad: [
+        'Всё будет хорошо, правда!',
+        'Даже если день не задался — ты всё равно молодец.',
+        'Это просто один день, дальше будет лучше.',
+        'Не сдавайся, ты сильнее, чем думаешь.',
+        'Сделай паузу и подыши — станет легче.'
+      ]
+    };
+  
+    const motivationsEn = {
+      good: [
+        'You are awesome!',
+        'You’ve got this!',
+        'Today is a great day for big things!',
+        'You’re on the right track!',
+        'I’m proud of you!'
+      ],
+      bad: [
+        'Everything will be fine, really!',
+        'Even if the day isn’t great, you’re still amazing.',
+        'It’s just one day, the next one will be better.',
+        'Don’t give up, you’re stronger than you think.',
+        'Take a break and breathe — it’ll get easier.'
+      ]
+    };
+  
+  const goodBtn = document.getElementById('good');
+  const goodBtnEn = document.getElementById('goodEn');
+  const badBtn = document.getElementById('bad');
+  const badBtnEn = document.getElementById('badEn');
+  const motLabel = document.getElementById('mot');
+  const motLabelEn = document.getElementById('motEn');
+  const againBtn = document.getElementById('again');
+  const againBtnEn = document.getElementById('againEn');
+  
+  // Функция сохранения и применения языка
+   function setLanguage(lang) {
+      localStorage.setItem('site-lang', lang);
+      showLang(lang);
+   }
+  
+  // --- Вспомогательные функции ---
+    function getRandomMotivation(list) {
+      const index = Math.floor(Math.random() * list.length);
+      return list[index];
+    }
+  
+  againBtn.style.display = 'none';
+  againBtnEn.style.display = 'none';
+  
+  goodBtn.addEventListener('click', () => {
+    goodBtn.style.display = 'none';
+    badBtn.style.display = 'none';
+    againBtn.style.display = '';
+    motLabel.textContent = getRandomMotivation(motivationsRu.good);
+  });
+  
+  badBtn.addEventListener('click', () => {
+    goodBtn.style.display = 'none';
+    badBtn.style.display = 'none';
+    againBtn.style.display = '';
+    motLabel.textContent = getRandomMotivation(motivationsRu.bad);
+  });
+  
+  goodBtnEn.addEventListener('click', () => {
+    goodBtnEn.style.display = 'none';
+    badBtnEn.style.display = 'none';
+    againBtnEn.style.display = '';
+    motLabelEn.textContent = getRandomMotivation(motivationsEn.good);
+  });
+  
+  badBtnEn.addEventListener('click', () => {
+    goodBtnEn.style.display = 'none';
+    badBtnEn.style.display = 'none';
+    againBtnEn.style.display = '';
+    motLabelEn.textContent = getRandomMotivation(motivationsEn.bad);
+  });
+  
+  againBtn.addEventListener('click', () => {
+    location.reload();
+  });
+  
+  againBtnEn.addEventListener('click', () => {
+    location.reload();
+  });
+  
+  const btnEn = document.getElementById('btn-en');
+  const btnRu = document.getElementById('btn-ru');
+  const enBlock = document.querySelector('.lang-en');
+  const ruBlock = document.querySelector('.lang-ru');
+
+  function showLang(lang) {
+    enBlock.classList.toggle('active', lang === 'en');
+    ruBlock.classList.toggle('active', lang === 'ru');
+    document.documentElement.lang = lang;
+  }
+
+  btnEn.addEventListener('click', () => showLang('en'));
+  btnRu.addEventListener('click', () => showLang('ru'));
+  </script>
+</body>
+</html>

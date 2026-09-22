@@ -1,0 +1,100 @@
+body {
+  width: 100vw;
+  height: 200px;
+  text-align: center;
+  background-color: coral;
+  color: #6A1C36
+}
+
+div {
+  padding: 10px;
+}
+
+#good {
+  width: 100px;
+  height: 30px;
+  background-color: green;
+  color: #6A1C36;
+  border: 1px solid #6A1C36;
+  border-radius: 10px;
+}
+
+#goodEn {
+  width: 100px;
+  height: 30px;
+  background-color: green;
+  color: #6A1C36;
+  border: 1px solid #6A1C36;
+  border-radius: 10px;
+}
+
+#bad {
+  width: 100px;
+  height: 30px;
+  background-color: red;
+  color: #6A1C36;
+  border: 1px solid #6A1C36;
+  border-radius: 10px;
+}
+
+#badEn {
+  width: 100px;
+  height: 30px;
+  background-color: red;
+  color: #6A1C36;
+  border: 1px solid #6A1C36;
+  border-radius: 10px;
+}
+
+#again {
+  width: 100px;
+  height: 25px;
+  background-color: #ff7f40;
+  color: #6A1C36;
+  border: 1px solid #6a1c36;
+  border-radius: 10px;
+}
+
+#againEn {
+  width: 100px;
+  height: 25px;
+  background-color: #ff7f40;
+  color: #6A1C36;
+  border: 1px solid #6a1c36;
+  border-radius: 10px;
+}
+
+.lang-en, .lang-ru { display: none; }
+.lang-en.active, .lang-ru.active { display: block; }
+
+#btn-en {
+  
+  width: 100px;
+  height: 25px;
+  background-color: #ff7f40;
+  color: #6A1C36;
+  border: 1px solid #6a1c36;
+  border-radius: 10px;
+}
+
+#btn-ru {
+  width: 100px;
+  height: 25px;
+  background-color: #ff7f40;
+  color: #6A1C36;
+  border: 1px solid #6a1c36;
+  border-radius: 10px;
+}
+
+.lang-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* центрирует по горизонтали */
+  gap: 10px;               /* расстояние между кнопками */
+  margin-top: 20px;       /* отступ сверху, если нужно */
+}
+
+.lang-controls button {
+  padding: 0px;
+  cursor: pointer;
+}
